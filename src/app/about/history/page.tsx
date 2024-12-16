@@ -42,8 +42,8 @@ const page = () => {
        <div className='mt-16 w-full'> <BreadCrumb name='About Us'  title="History"/></div>
  
        </div>
-        <main className="mt-10 flex justify-between items-start gap-4 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-10 lg:mt-10 lg:px-8 xl:mt-10">
-        <div className='lg:w-2/3 bg-zinc-50 p-2'>
+        <main className="mt-10 flex flex-col md:flex-row justify-between items-start gap-4 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-10 lg:mt-10 lg:px-8 xl:mt-10">
+        <div className='lg:w-2/3 w-full bg-zinc-50 p-2'>
         <div className="sm:text-center lg:text-left">
   <h2 className="my-6 text-2xl flex gap-4 tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-3xl">
     History <span className='border border-r-2 border-yellow-300'></span>
@@ -64,7 +64,7 @@ In India the Co-Operative Act was first created in 1904 and then passed again in
 </div>
 </div>
 
-<div className=" lg:w-1/3 space-y-6">
+<div className=" lg:w-1/3  w-full space-y-6">
 <div className='lg:w-full'>
 
 
