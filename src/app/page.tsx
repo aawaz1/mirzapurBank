@@ -39,12 +39,13 @@ const HomePage = async () => {
   // console.log(res);
 
   return (
-    <div className="">
+    <div className="relative">
       <Slider />
       <History/>
       <Testimonials/>
       <ActivitiesCard/>
       <CardHoverEffectDemo/>
+    
 
      
     </div>
