@@ -70,13 +70,13 @@ const Slider = () => {
          
           
             {/* IMAGE CONTAINER */}
-            <div className="h-full bg-yellow-400 xl:w-full xl:h-full relative">
+            <div className="h-full w-[100%] bg-yellow-400 xl:w-full xl:h-full relative">
               <Image
                 src={slide.img}
                 alt=""
                 fill
                 sizes="100%"
-                className="object-cover"
+                className="object-cover w-[100%] h-20"
               />
             </div>
           </div>

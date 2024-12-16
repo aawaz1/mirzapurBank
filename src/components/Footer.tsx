@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div className="py-12 px-4 md:px-8 lg:px-16 xl:32 2xl:px-64 bg-slate-700 text-sm mt-24">
       {/* TOP */}
-      <div className="bg-black p-2 py-8 mb-4 rounded-md  flex gap-2 justify-center items-center">
+      <div className="bg-black p-2 py-8 mb-4 rounded-md  flex gap-2 flex-col md:flex-row justify-center items-center">
         <button className="rounded-md py-3 hover:bg-yellow-600 px-4 text-white bg-gray-700 p-2">DCB Web Mail</button>
         <button className="rounded-md py-3 hover:bg-yellow-600 px-4 text-white bg-gray-700 p-2">Circular Login</button>
         <button className="rounded-md py-3 hover:bg-yellow-600 px-4 text-white bg-gray-700 p-2">Admin Login</button>

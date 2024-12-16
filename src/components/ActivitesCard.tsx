@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export function ActivitiesCard() {
   return (
-    (<div className=" w-full px-12 py-6  space-x-4       grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  
+    (<div className=" w-full px-12 py-6  space-x-4  space-y-2 justify-center items-center     grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  
   container mx-auto bg-blue-300 ">
     <div className="bg-slate-200 p-2 rounded-md">
       
@@ -34,8 +34,9 @@ export function ActivitiesCard() {
       }
     </div>
     </div>
+    
     <div className="bg-slate-200 p-2 rounded-md">
-      <h2 className="p-2 text-2xl font-bold">Activities</h2>
+      <h2 className="p-2  text-2xl font-bold">Activities</h2>
       <div className="rounded-md">
       <button className="flex bg-white justify-start gap-4 border rounded-t-md border-b-0  border-black items-start p-2 hover:bg-blue-50 w-full">
         <FaCheck className="text-blue-400 mt-1"/>
@@ -67,8 +68,8 @@ export function ActivitiesCard() {
       </div>
   
     </div>
-    <div className="bg-white  rounded-md">
-      <h2 className=" text-2xl py-2 text-center text-blue-600 font-bold bg-slate-200">What&apos;s New !!</h2>
+    <div className="bg-white h-[300px]  rounded-md">
+      <h2 className=" text-2xl py-2 text-center text-blue-600 rounded-t-md font-bold bg-slate-200">What&apos;s New !!</h2>
      
   
     </div>
