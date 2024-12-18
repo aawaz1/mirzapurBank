@@ -12,7 +12,7 @@ const ScrollUp = () => {
 
   return (
     <div
-      className="bg-blue-400 text-white rounded-full px-4 py-3 cursor-pointer fixed bottom-5 right-5 shadow-lg"
+      className="bg-blue-950 text-white rounded-full px-4 py-3 cursor-pointer fixed bottom-5 right-5 shadow-lg"
       onClick={handleScrollToTop}
       title="Scroll to Top"
     >

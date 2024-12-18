@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@fontsource/poppins/400.css"; /* Regular weight */
+@import "@fontsource/poppins/700.css"; /* Bold weight */
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

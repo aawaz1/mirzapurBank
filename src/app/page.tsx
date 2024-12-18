@@ -7,11 +7,12 @@ import { CardHoverEffectDemo } from "@/components/HoverCards";
 import ProductList from "@/components/ProductList";
 import Skeleton from "@/components/Skeleton";
 import Slider from "@/components/Slider";
-import Testimonials from "@/components/Testimonials";
+import {Testimonials} from "@/components/Testimonials";
 import { WixClientContext } from "@/context/wixContext";
 import { useWixClient } from "@/hooks/useWixClient";
 import { wixClientServer } from "@/lib/wixClientServer";
 import { Suspense, useContext, useEffect } from "react";
+import CardComponent from '@/components/CardComponent'
 
 const HomePage = async () => {
 
@@ -43,8 +44,10 @@ const HomePage = async () => {
       <Slider />
       <History/>
       <Testimonials/>
-      <ActivitiesCard/>
       <CardHoverEffectDemo/>
+
+      <ActivitiesCard/>
+    
     
 
      

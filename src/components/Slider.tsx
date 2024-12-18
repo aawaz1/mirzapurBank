@@ -1,104 +1,118 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
+"use client"
+import React, { useState } from "react";
 import slider0 from '../../public/slider-0.jpg'
-import slider1 from '../../public/slider-1.jpg'
-import slider2 from '../../public/slider-2.jpg'
-import slider3 from '../../public/slider-3.jpg'
 
-
-import { useEffect, useState } from "react";
-
-const slides = [
-  {
-    id: 1,
-    title: "",
+const Carousel = () => {
+  const slides = [
    
-    img : slider0,
-    url: "/",
-    bg: "bg-gradient-to-r from-yellow-50 to-pink-50",
-  },
-  {
-    id: 2,
-    title: "Winter Sale Collections",
-    description: "Sale! Up to 50% off!",
-    img :slider1    ,
-    url: "/",
-    bg: "bg-gradient-to-r from-pink-50 to-blue-50",
-  },
-  {
-    id: 3,
-    title: "Spring Sale Collections",
-    description: "Sale! Up to 50% off!",
-    img : slider2,
-    url: "/",
-    bg: "bg-gradient-to-r from-blue-50 to-yellow-50",
-  },
-  {
-    id: 4,
-    title: "Spring Sale Collections",
-    description: "Sale! Up to 50% off!",
-    img : slider3,
-    url: "/",
-    bg: "bg-gradient-to-r from-blue-50 to-yellow-50",
-  },
-];
 
-const Slider = () => {
-  const [current, setCurrent] = useState(0);
+    {
+      id: 1,
+      image: "https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg",
+      label: "Second slide label",
+      text: "Some representative placeholder content for the second slide.",
+    },
+    {
+      id: 2,
+      image: "https://tecdn.b-cdn.net/img/Photos/Slides/img%20(23).jpg",
+      label: "Third slide label",
+      text: "Some representative placeholder content for the third slide.",
+    },
+  ];
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  //   }, 3000);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  //   return () => clearInterval(interval);
-  // }, []);
+  const handleNext = () => {
+    setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length);
+  };
+
+  const handlePrev = () => {
+    setActiveSlide((prevSlide) =>
+      prevSlide === 0 ? slides.length - 1 : prevSlide - 1
+    );
+  };
 
   return (
-    <div className="h-[calc(100vh-200px)] overflow-hidden">
-      <div
-        className="w-max h-full flex transition-all ease-in-out duration-1000"
-        style={{ transform: `translateX(-${current * 100}vw)` }}
-      >
-        {slides.map((slide) => (
-          <div
-            className={`${slide.bg} w-screen h-full flex flex-col gap-16 xl:flex-row`}
+    <div className="relative" id="carouselExampleCaptions">
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0">
+        {slides.map((slide, index) => (
+          <button
             key={slide.id}
-          >
-         
-          
-            {/* IMAGE CONTAINER */}
-            <div className="h-full w-[100%] bg-yellow-400 xl:w-full xl:h-full relative">
-              <Image
-                src={slide.img}
-                alt=""
-                fill
-                sizes="100%"
-                className="object-cover w-[100%] h-20"
-              />
-            </div>
-          </div>
+            type="button"
+            onClick={() => setActiveSlide(index)}
+            className={`mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 opacity-50 transition-opacity duration-[600ms] ${
+              activeSlide === index ? "opacity-100" : ""
+            }`}
+            aria-label={`Slide ${index + 1}`}
+          ></button>
         ))}
       </div>
-      <div className="absolute m-auto left-1/2 bottom-1/4 flex gap-4">
+
+      {/* Carousel Items */}
+      <div className="relative w-full overflow-hidden">
         {slides.map((slide, index) => (
           <div
-            className={`w-3 h-3  rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${
-              current === index ? "scale-150" : ""
-            }`}
             key={slide.id}
-            onClick={() => setCurrent(index)}
+            className={`relative float-left w-full transition-transform duration-[600ms] ${
+              activeSlide === index ? "block" : "hidden"
+            }`}
           >
-            {current === index && (
-              <div className="w-[6px] h-[6px] bg-gray-600 rounded-full"></div>
-            )}
+            <img src={slide.image} className="block w-full min-h-96" alt={slide.label} />
+          
           </div>
         ))}
       </div>
+
+      {/* Carousel Controls */}
+      <button
+        className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 hover:opacity-90"
+        type="button"
+        onClick={handlePrev}
+      >
+        <span className="inline-block h-8 w-8">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </span>
+        <span className="sr-only">Previous</span>
+      </button>
+      <button
+        className="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 hover:opacity-90"
+        type="button"
+        onClick={handleNext}
+      >
+        <span className="inline-block h-8 w-8">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="h-6 w-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </span>
+        <span className="sr-only">Next</span>
+      </button>
     </div>
   );
 };
 
-export default Slider;
+export default Carousel;

@@ -53,6 +53,7 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
           <CardImage src={item.image} alt={item.title} />
+          <CardBorder>{item.image}</CardBorder>
           <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}<span className="text-blue-500 ">...Read More</span></CardDescription>
           
@@ -127,6 +128,24 @@ export const CardDescription = ({
       )}
     >
       {children}
+    </p>
+  );
+};
+
+
+export const CardBorder = ({
+
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p
+      className=
+        "mt-8  border-t-4  border-blue-800 w-[50%] border"
+    >
+      
     </p>
   );
 };

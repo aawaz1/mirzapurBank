@@ -220,6 +220,7 @@ export default function Navbar() {
   }
 
   return (
+    <div className="bg-blue-400">
     <div className="mx-auto flex  w-full max-w-7xl justify-between  py-5 text-sm">
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-5">
@@ -230,19 +231,19 @@ export default function Navbar() {
        <h2 className="font-bold text-lg">
 				 
 				 ZILA SAHKARI BANK LTD. MIRZAPUR		   </h2>
-         <span className="text-yellow-600 text-md font-semibold">Mirzapur</span>
+         <span className="text-blue-950 text-md font-semibold">Mirzapur</span>
        </div>
       
          </div>
         {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
-        <div className="hidden md:flex items-center gap-2 transition-all">
+        <div className="hidden  md:flex items-center gap-2 transition-all">
           {navItems.map((d, i) => (
             <Link
               key={i}
               href={d.link ?? "#"}
               className="relative group  px-1 py-3 transition-all "
             >
-              <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-black ">
+              <p className="flex cursor-pointer items-center gap-2 text-black group-hover:text-black ">
                 <span className="text-md">{d.label}</span>
                 {d.children && (
                   <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />
@@ -284,20 +285,21 @@ export default function Navbar() {
         className="cursor-pointer text-4xl md:hidden"
       />
     </div>
+    </div>
   );
 }
 
 function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
   return (
     <div className="fixed z-50 left-0 top-0 flex h-full min-h-screen w-full justify-end bg-black/60 md:hidden">
-      <div className=" h-full w-[65%] bg-white px-4 py-4">
+      <div className=" h-full w-[65%] bg-blue-400 px-4 py-4">
         <section className="flex justify-end">
           <AiOutlineClose
             onClick={closeSideMenu}
             className="cursor-pointer text-4xl "
           />
         </section>
-        <div className=" flex flex-col text-base  gap-2 transition-all">
+        <div className=" flex flex-col text-base  text-black gap-2 transition-all">
           {navItems.map((d, i) => (
             <SingleNavItem
               key={i}
@@ -332,7 +334,7 @@ function SingleNavItem(d: NavItem) {
       className="relative   px-2 py-3 transition-all "
     >
       <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-black ">
-        <span>{d.label}</span>
+        <span className="text-black">{d.label}</span>
         {d.children && (
           // rotate-180
           <IoIosArrowDown
@@ -353,7 +355,7 @@ function SingleNavItem(d: NavItem) {
               {/* image */}
               {ch.iconImage && <Image src={ch.iconImage} alt="item-icon" />}
               {/* item */}
-              <span className="whitespace-nowrap   pl-3 ">{ch.label}</span>
+              <span className="whitespace-nowrap text-black   pl-3 ">{ch.label}</span>
             </Link>
           ))}
         </div>
